@@ -41,7 +41,6 @@ class CustomDatePickerDialog : DialogFragment(), DatePickerDialog.OnDateSetListe
         val mm = calendar.get(Calendar.MONTH)
         val dd = calendar.get(Calendar.DAY_OF_MONTH)
 
-        //val datePickerDialog = DatePickerDialog(activity!!, this, yy, mm, dd)
         val datePickerDialog = DatePickerDialog(
             requireActivity(), R.style.DatePickerDialogTheme, this, yy, mm, dd
         )
