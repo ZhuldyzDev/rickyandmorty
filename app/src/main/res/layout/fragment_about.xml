@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="kz.coreproject.ui.about.AboutViewModel" />
+        <import type="kz.bcc.school.ui.about.AboutViewModel" />
 
         <variable
             name="viewModel"
-            type="kz.coreproject.ui.about.AboutViewModel" />
+            type="kz.bcc.school.ui.about.AboutViewModel" />
 
     </data>
 

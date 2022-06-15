@@ -4,11 +4,11 @@
 
     <data>
 
-        <import type="kz.coreproject.ui.activities.main.MainViewModel" />
+        <import type="kz.bcc.school.ui.activities.main.MainViewModel" />
 
         <variable
             name="viewModel"
-            type="kz.coreproject.ui.activities.main.MainViewModel" />
+            type="kz.bcc.school.ui.activities.main.MainViewModel" />
 
     </data>
 

@@ -4,11 +4,11 @@
 
     <data>
 
-        <import type="kz.coreproject.ui.activities.splash.SplashViewModel" />
+        <import type="kz.bcc.school.ui.activities.splash.SplashViewModel" />
 
         <variable
             name="viewModel"
-            type="kz.coreproject.ui.activities.splash.SplashViewModel" />
+            type="kz.bcc.school.ui.activities.splash.SplashViewModel" />
 
     </data>
 
