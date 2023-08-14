@@ -1,11 +1,11 @@
 package kz.bcc.school.di.modules
 
 import dagger.Module
-import kz.bcc.school.di.modules.repository.AboutRepositoryModule
+import kz.bcc.school.di.modules.repository.CharacterRepositoryModule
 
 @Module(
     includes = [
-        AboutRepositoryModule::class
+        CharacterRepositoryModule::class
     ]
 )
 class RepositoryModule {

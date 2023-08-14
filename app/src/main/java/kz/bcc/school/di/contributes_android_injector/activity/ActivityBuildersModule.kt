@@ -2,7 +2,7 @@ package kz.bcc.school.di.contributes_android_injector.activity
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import kz.bcc.school.di.contributes_android_injector.fragment.AboutFragmentsBuildersModule
+import kz.bcc.school.di.contributes_android_injector.fragment.CharacterFragmentsBuildersModule
 import kz.bcc.school.di.contributes_android_injector.fragment.SplashFragmentsBuildersModule
 import kz.bcc.school.ui.activities.main.MainActivity
 import kz.bcc.school.ui.activities.splash.SplashActivity
@@ -19,7 +19,7 @@ abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector(
         modules = [
-            AboutFragmentsBuildersModule::class
+            CharacterFragmentsBuildersModule::class
         ]
     )
     internal abstract fun mainActivity(): MainActivity

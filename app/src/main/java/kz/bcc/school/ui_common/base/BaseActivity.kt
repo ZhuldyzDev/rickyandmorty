@@ -5,12 +5,10 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import bcc.school.app.R
-import kz.bcc.school.utils.locale.LocaleUtils
 import javax.inject.Inject
 
 open class BaseActivity : AppCompatActivity(), HasAndroidInjector {
@@ -66,8 +64,7 @@ open class BaseActivity : AppCompatActivity(), HasAndroidInjector {
     }
 
     override fun attachBaseContext(newBase: Context?) {
-//        super.attachBaseContext(newBase)
-        super.attachBaseContext(LocaleUtils.setLocale(newBase))
+        super.attachBaseContext(newBase)
     }
 
 }

@@ -17,10 +17,7 @@ class AuthTokenInterceptor(
         // Customize the request
         val request = original.newBuilder()
             .header(Header.ACCEPT, headerUtils.getAccept())
-            .header(Header.DEVICE_ID, headerUtils.getDeviceId())
-            .header(Header.APP_TOKEN, headerUtils.getAppToken())
             .header(Header.APP_VERSION, headerUtils.getAppVersion())
-            .header(Header.LANG, headerUtils.getLang())
             .header(Header.DEVICE_BRAND, headerUtils.getDeviceBrand())
             .header(Header.DEVICE_MODEL, headerUtils.getDeviceModel())
             .header(Header.DEVICE_OS, headerUtils.getDeviceOs())

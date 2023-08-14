@@ -18,8 +18,10 @@ import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import bcc.school.app.R
-import kz.bcc.school.data.enums.app.DatePatternEnums
+import  kz.bcc.school.data.enums.data.DatePatternEnums
 import kz.bcc.school.utils.convertDateToString
+import kz.bcc.school.utils.downloadFromUrl
+import kz.bcc.school.utils.placeholderProgressBar
 import java.util.*
 
 @BindingAdapter("app:errorText")
@@ -46,6 +48,10 @@ fun showHide(view: View, show: Boolean) {
 @BindingAdapter("android:src")
 fun setImageResource(imageView: ImageView, resource: Int) {
     imageView.setImageResource(resource)
+}
+@BindingAdapter("android:downloadUrl")
+fun downloadImage(view: ImageView, url: String?) {
+    view.downloadFromUrl(url, placeholderProgressBar(view.context))
 }
 
 @BindingAdapter("bindIcon")

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cartoonCharacter"
+            type="kz.bcc.school.data.models.CartoonCharacter" />
+
+        <variable
+            name="viewModel"
+            type="kz.bcc.school.ui.detail.CharacterDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.cartooncharacterdetail.CartoonCharacterDetailFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/detail_characterImage"
+                android:layout_width="247dp"
+                android:layout_height="232dp"
+                android:layout_marginTop="32dp"
+                android:downloadUrl="@{cartoonCharacter.image}"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/detail_characterName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{@string/name_formatted(cartoonCharacter.name)}"
+                android:textColor="@color/black20"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_characterImage"
+                tools:text="Character Name" />
+
+            <TextView
+                android:id="@+id/detail_characterLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{@string/location_formatted(cartoonCharacter.origin.name)}"
+                android:textColor="@color/black20"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/detail_characterName"
+                app:layout_constraintStart_toStartOf="@+id/detail_characterName"
+                app:layout_constraintTop_toBottomOf="@+id/detail_characterName"
+                tools:text="Location" />
+
+            <TextView
+                android:id="@+id/detail_characterStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_bold"
+                android:lifeStatusColor="@{cartoonCharacter.lifeStatus}"
+                android:text="@{@string/status_formatted(cartoonCharacter.status)}"
+                android:textColor="@color/black20"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/detail_characterName"
+                app:layout_constraintStart_toStartOf="@+id/detail_characterName"
+                app:layout_constraintTop_toBottomOf="@+id/detail_characterLocation"
+                tools:text="Life Status" />
+
+            <TextView
+                android:id="@+id/detail_characterSpecies"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{@string/species_formatted(cartoonCharacter.species)}"
+                android:textColor="@color/black20"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/detail_characterName"
+                app:layout_constraintStart_toStartOf="@+id/detail_characterName"
+                app:layout_constraintTop_toBottomOf="@+id/detail_characterStatus"
+                tools:text="Species" />
+
+            <TextView
+                android:id="@+id/detail_characterGender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{@string/gender_formatted(cartoonCharacter.gender)}"
+                android:textColor="@color/black20"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/detail_characterName"
+                app:layout_constraintStart_toStartOf="@+id/detail_characterName"
+                app:layout_constraintTop_toBottomOf="@+id/detail_characterSpecies"
+                tools:text="Gender" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

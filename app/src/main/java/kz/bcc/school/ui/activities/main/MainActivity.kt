@@ -3,18 +3,21 @@ package kz.bcc.school.ui.activities.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import bcc.school.app.R
 import bcc.school.app.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
+import kz.bcc.school.network.utils.Network
+import kz.bcc.school.network.utils.Network.isNetworkAvailable
 import kz.bcc.school.ui_common.base.BaseActivity
 
 class MainActivity : BaseActivity() {
@@ -27,75 +30,57 @@ class MainActivity : BaseActivity() {
     private lateinit var viewModel: MainViewModel
 
     private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
+        initToolbarNavigation()
         setContentView(binding.root)
 
-        viewModel = getViewModel(MainViewModel::class.java)
-        binding.viewModel = viewModel
+        if (!Network.isNetworkAvailable(applicationContext)) {
+            Toast.makeText(
+                this@MainActivity,
+                "Please,connect to network",
+                Toast.LENGTH_LONG
+            ).show()
 
-        initView()
+        }
     }
 
-    private fun initView() {
 
-        navController = findNavController(R.id.nav_host_fragment)
-
-        initToolbar()
-        initOnDestinationChangedListener()
-        initNavigationView()
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    private fun initToolbar() {
-        val appBarConfiguration = AppBarConfiguration(
+
+    private fun initToolbarNavigation() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        navController = navHostFragment.navController
+
+
+        appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.aboutFragment
-            ),
-            binding.drawerLayout
+                R.id.charactersFragment,
+                R.id.characterDetailFragment,
+            )
         )
-
         setSupportActionBar(binding.toolbar)
-        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-    }
 
-    private fun initOnDestinationChangedListener() {
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.aboutFragment
-                -> {
-                    //do nothing
+                R.id.charactersFragment -> {
+                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
                 }
-            }
-        }
-    }
-
-    private fun initNavigationView() {
-        binding.navigationView.background.alpha = 90
-        binding.navigationView.setupWithNavController(navController)
-        binding.navigationView.setNavigationItemSelectedListener {
-            when (it.itemId) {
                 else -> {
-                    closeDrawer()
-                    val result = NavigationUI.onNavDestinationSelected(it, navController)
-                    binding.navigationView.setCheckedItem(it.itemId)
-                    result
+                    supportActionBar?.setDisplayHomeAsUpEnabled(true)
                 }
             }
-        }
-    }
-
-    private fun openDrawer() {
-        binding.drawerLayout.openDrawer(binding.navigationView, true)
-    }
-
-    private fun closeDrawer() {
-        GlobalScope.launch(Dispatchers.Main) {
-            delay(100)
-            binding.drawerLayout.closeDrawer(binding.navigationView, true)
         }
     }
 

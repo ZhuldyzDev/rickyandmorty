@@ -7,7 +7,7 @@ import com.google.gson.JsonDeserializer
 import bcc.school.app.BuildConfig
 import dagger.Module
 import dagger.Provides
-import kz.bcc.school.data.enums.app.DatePatternEnums
+import kz.bcc.school.data.enums.data.DatePatternEnums
 import kz.bcc.school.network.interceptors.AuthTokenInterceptor
 import kz.bcc.school.network.utils.HeaderUtils
 import kz.bcc.school.utils.convertStringToDate

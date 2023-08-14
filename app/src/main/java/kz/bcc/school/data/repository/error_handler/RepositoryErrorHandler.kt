@@ -5,7 +5,6 @@ import com.google.gson.Gson
 import bcc.school.app.R
 import kz.bcc.school.data.models.network.Resource
 import kz.bcc.school.data.models.network.error.ApiError
-import kz.bcc.school.data.preferences.Preferences
 import kz.bcc.school.network.exceptions.ApiException
 import kz.bcc.school.network.exceptions.ConnectionTimeOutException
 import kz.bcc.school.network.exceptions.UnauthorizedException
@@ -18,8 +17,7 @@ import javax.inject.Inject
 class RepositoryErrorHandler
 @Inject constructor(
     private val gson: Gson,
-    private val app: Application,
-    private val preferences: Preferences
+    private val app: Application
 ) {
 
     companion object {
@@ -61,7 +59,6 @@ class RepositoryErrorHandler
                     ApiException(error)
                 }
                 UNAUTHORIZED -> {
-                    preferences.removeAppToken()
                     UnauthorizedException(error?.message)
                 }
                 else -> {
@@ -109,7 +106,6 @@ class RepositoryErrorHandler
                             ApiException(error)
                         }
                         UNAUTHORIZED -> {
-                            preferences.removeAppToken()
                             UnauthorizedException(error.message)
                         }
                         else -> {

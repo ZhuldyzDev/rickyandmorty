@@ -24,10 +24,7 @@ object ExceptionHandler {
     fun handleExceptionView(context: Context, exception: Exception?) {
         exception?.let {
             when (it) {
-                is UnauthorizedException -> {
-//                    val intent = UnauthorizedActivity.getIntentNewTask(context!!)
-//                    context.startActivity(intent)
-                }
+
             }
         }
     }

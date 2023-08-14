@@ -1,11 +1,11 @@
 package kz.bcc.school.di.modules
 
 import dagger.Module
-import kz.bcc.school.di.modules.api.AboutApiModule
+import kz.bcc.school.di.modules.api.CharacterApiModule
 
 @Module(
     includes = [
-        AboutApiModule::class
+        CharacterApiModule::class
     ]
 )
 class ApiModule {

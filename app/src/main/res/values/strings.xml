@@ -2,5 +2,11 @@
     <string name="app_name">BCC School</string>
 
     <string name="no_data">Нет данных для отображения</string>
+    <string name="name_formatted">Name: %s</string>
+    <string name="location_formatted">Location: %s</string>
+    <string name="status_formatted">Status: %s</string>
+    <string name="species_formatted">Species: %s</string>
+    <string name="gender_formatted">Gender: %s</string>
+    <string name="created_formatted">Created at: %s</string>
 
 </resources>

@@ -10,7 +10,6 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import kz.bcc.school.data.app_lifecycle.ApplicationObserver
 import kz.bcc.school.di.utils.AppInjector
-import kz.bcc.school.utils.locale.LocaleUtils
 import javax.inject.Inject
 
 class App : Application(), HasAndroidInjector {
@@ -34,13 +33,13 @@ class App : Application(), HasAndroidInjector {
 
     override fun attachBaseContext(base: Context) {
 //        super.attachBaseContext(base)
-        super.attachBaseContext(LocaleUtils.setLocale(base))
+        super.attachBaseContext(base)
         MultiDex.install(this)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        LocaleUtils.setLocale(this)
+      //  LocaleUtils.setLocale(this)
     }
 
 }
