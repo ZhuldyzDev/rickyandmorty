@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="bcc.school.app">
+    package="kz.test.rickandmorty">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -12,16 +12,16 @@
     <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
 
     <application
-        android:name="kz.bcc.school.App"
+        android:name="kz.test.rickandmorty.App"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_rick"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_rick"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="kz.bcc.school.ui.activities.splash.SplashActivity"
+            android:name="kz.test.rickandmorty.ui.activities.splash.SplashActivity"
             android:screenOrientation="fullSensor"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
@@ -33,7 +33,7 @@
         </activity>
 
         <activity
-            android:name="kz.bcc.school.ui.activities.main.MainActivity"
+            android:name="kz.test.rickandmorty.ui.activities.main.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             />

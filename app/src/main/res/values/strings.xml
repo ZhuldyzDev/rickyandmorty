@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BCC School</string>
+    <string name="app_name">RickAndMorty</string>
 
     <string name="no_data">Нет данных для отображения</string>
     <string name="name_formatted">Name: %s</string>

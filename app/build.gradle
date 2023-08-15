@@ -12,7 +12,7 @@ android {
     compileSdk 32
 //    buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "kz.bcc.school"
+        applicationId "kz.test.rickandmorty"
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 1
@@ -35,19 +35,11 @@ android {
     productFlavors {
         dev {
             dimension "default"
-            applicationId "kz.bcc.school"
+            applicationId "kz.test.rickandmorty"
             buildConfigField "String", "URL_BASE", '"https://rickandmortyapi.com/api/"'
             buildConfigField "boolean", "IS_DEBUG", "true"
-            buildConfigField "String", "FILE_PROVIDER", '"kz.bcc.school.dev.fileprovider"'
-            manifestPlaceholders = [manifestFileProvider: "kz.bcc.school.dev.fileprovider"]
-        }
-        prod {
-            dimension "default"
-            applicationId "kz.bcc.school"
-            buildConfigField "String", "URL_BASE", '"https://rickandmortyapi.com/api/"'
-            buildConfigField "boolean", "IS_DEBUG", "true"
-            buildConfigField "String", "FILE_PROVIDER", '"kz.bcc.school.fileprovider"'
-            manifestPlaceholders = [manifestFileProvider: "kz.bcc.school.fileprovider"]
+            buildConfigField "String", "FILE_PROVIDER", '"kz.test.rickandmorty.dev.fileprovider"'
+            manifestPlaceholders = [manifestFileProvider: "kz.test.rickandmorty.dev.fileprovider"]
         }
     }
 
@@ -96,6 +88,9 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
+    implementation 'androidx.test:core-ktx:1.5.0'
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "androidx.test:runner:$testRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
@@ -181,38 +176,11 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
 
-    //otp
-    implementation "com.github.aabhasr1:OtpView:1.0.6"
 
     //
     implementation "androidx.viewpager2:viewpager2:1.1.0-beta01"
 
-    implementation 'com.applandeo:material-calendar-view:1.6.0'
 
-    //Sms Retriever
-    implementation "com.google.android.gms:play-services-auth-api-phone:18.0.1"
-
-    //Google Maps
-    implementation 'com.google.android.gms:play-services-maps:18.0.2'
-    implementation 'com.google.android.gms:play-services-location:19.0.1'
-
-    //Dots Indicator
-    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
-
-    implementation 'gun0912.ted:tedbottompicker:2.0.1'
-
-    //Firebase
-    implementation platform('com.google.firebase:firebase-bom:28.2.0')
-    implementation 'com.google.firebase:firebase-analytics'
-
-    //Firebase - Auth
-    implementation 'com.google.firebase:firebase-auth:21.0.5'
-    implementation 'com.google.android.gms:play-services-auth:20.2.0'
-    //Facebook Auth sdk
-    // https://mvnrepository.com/artifact/com.facebook.android/facebook-android-sdk
-    implementation("com.facebook.android:facebook-android-sdk:12.3.0")
-    implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation("com.google.firebase:firebase-iid")
 
     //Motion Layout
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0-alpha02'
@@ -220,17 +188,24 @@ dependencies {
     //HTML parser
     implementation 'org.jsoup:jsoup:1.13.1'
 
-    //chart
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
-    // mask
-    implementation 'ru.egslava:MaskedEditText:1.0.5'
-//    implementation 'ru.egslava:MaskedEditText:1.0.5'
+    // JUnit for unit testing
+    testImplementation 'junit:junit:4.13.2'
 
-    //onesignal
-//    implementation 'com.onesignal:OneSignal:3.11.4'
-    implementation 'com.onesignal:OneSignal:4.6.2'
+    // Mockito for mocking in unit tests
+    testImplementation 'org.mockito:mockito-core:3.12.4'
 
-    implementation 'com.google.android.material:material:1.7.0-alpha02'
+    // If you're using Kotlin, you might want to use the Kotlin version of Mockito
+    testImplementation 'org.mockito.kotlin:mockito-kotlin:3.2.0'
+
+    // Add kotlinx-coroutines-test
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1'
+    // AndroidX Testing Library
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    // Mockito Kotlin
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0'
+    androidTestImplementation 'androidx.test:core:1.4.0'
+    testImplementation "com.squareup.okhttp3:mockwebserver:4.9.1"
+    testImplementation "com.google.truth:truth:1.1.3"
 
 }

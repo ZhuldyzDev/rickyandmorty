@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="kz.bcc.school.ui_common.callbacks.RecyclerViewItemClickCallback" />
+        <import type="kz.test.rickandmorty.ui_common.callbacks.RecyclerViewItemClickCallback" />
 
 
         <variable
@@ -13,7 +13,7 @@
 
         <variable
             name="cartoonCharacterItem"
-            type="kz.bcc.school.data.models.CartoonCharacter" />
+            type="kz.test.rickandmorty.data.models.CartoonCharacter" />
     </data>
 
     <LinearLayout
@@ -28,7 +28,7 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="15dp"
             app:cardElevation="5dp"
             android:onClick= "@{() -> recyclerViewItemClickCallback.onRecyclerViewItemClick(cartoonCharacterItem)}"
             app:cardUseCompatPadding="true"

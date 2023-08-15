@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="kz.bcc.school.ui.character.CharactersFragment"
+        android:name="kz.test.rickandmorty.ui.character.CharactersFragment"
         android:label="fragment_characters"
         tools:layout="@layout/fragment_characters" >
         <action
@@ -17,11 +17,11 @@
     </fragment>
     <fragment
         android:id="@+id/characterDetailFragment"
-        android:name="kz.bcc.school.ui.detail.CharacterDetailFragment"
+        android:name="kz.test.rickandmorty.ui.detail.CharacterDetailFragment"
         android:label="fragment_character_detail"
         tools:layout="@layout/fragment_character_detail" >
         <argument
             android:name="character"
-            app:argType="kz.bcc.school.data.models.CartoonCharacter" />
+            app:argType="kz.test.rickandmorty.data.models.CartoonCharacter" />
     </fragment>
 </navigation>

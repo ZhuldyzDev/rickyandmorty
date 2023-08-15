@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="kz.bcc.school.ui.splash.SplashViewModel" />
+        <import type="kz.test.rickandmorty.ui.splash.SplashViewModel" />
 
         <variable
             name="viewModel"
-            type="kz.bcc.school.ui.splash.SplashViewModel" />
+            type="kz.test.rickandmorty.ui.splash.SplashViewModel" />
 
     </data>
 
@@ -20,7 +20,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_rick" />
 
     </LinearLayout>
 
